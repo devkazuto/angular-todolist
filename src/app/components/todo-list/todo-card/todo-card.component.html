@@ -1,5 +1,5 @@
 <mat-tab-group color="accent" *ngIf="todosList().length > 0; else withoutTodos">
-    <mat-tab label="In Progress">
+    <mat-tab label="Sedang Berlangsung">
         <div *ngFor="let todo of todosList()">
             <mat-card class="todo_card" *ngIf="!todo?.done">
                 <mat-card-header>
@@ -11,11 +11,11 @@
                     </mat-card-subtitle>
                 </mat-card-header>
                 <mat-card-actions align="end">
-                    <button class="header_btn check-btn" mat-icon-button aria-label="Complete Task"
+                    <button class="header_btn check-btn" mat-icon-button aria-label="Selesaikan Tugas"
                         (click)="handleDoneTodo(todo.id)">
                         <mat-icon>done_all</mat-icon>
                     </button>
-                    <button class="header_btn check-btn todo_form_delete_btn" mat-icon-button aria-label="Delete Task"
+                    <button class="header_btn check-btn todo_form_delete_btn" mat-icon-button aria-label="Hapus Tugas"
                         (click)="handleDeleteTodo(todo)">
                         <mat-icon>delete_forever</mat-icon>
                     </button>
@@ -24,7 +24,7 @@
         </div>
     </mat-tab>
 
-    <mat-tab label="Completed">
+    <mat-tab label="Selesai">
         <div *ngFor="let todo of todosList()">
             <mat-card class="todo_card" *ngIf="todo?.done">
                 <mat-card-header>
@@ -37,11 +37,11 @@
                 </mat-card-header>
 
                 <mat-card-actions align="end">
-                    <button class="header_btn restore-btn" mat-icon-button aria-label="Restore Task"
+                    <button class="header_btn restore-btn" mat-icon-button aria-label="Pulihkan Tugas"
                         (click)="handleDoneTodo(todo.id)">
                         <mat-icon>restore</mat-icon>
                     </button>
-                    <button class="header_btn check-btn todo_form_delete_btn" mat-icon-button aria-label="Delete Task"
+                    <button class="header_btn check-btn todo_form_delete_btn" mat-icon-button aria-label="Hapus Tugas"
                         (click)="handleDeleteTodo(todo)">
                         <mat-icon>delete_forever</mat-icon>
                     </button>
@@ -52,5 +52,5 @@
 </mat-tab-group>
 
 <ng-template #withoutTodos>
-    <h3 class="warn_message">No tasks available!</h3>
+    <h3 class="warn_message">Tidak ada tugas tersedia!</h3>
 </ng-template>
